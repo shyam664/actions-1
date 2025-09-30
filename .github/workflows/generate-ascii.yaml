@@ -27,7 +27,7 @@ jobs:
        name: dragon-text-file
        path: dragon.txt 
     - name: test file exists 
-      run: grep -i "dragon" dragon.text 
+      run: grep -i "dragon" dragon.txt 
   
   Deploy_job_1:
     needs: test_job_1
@@ -38,7 +38,7 @@ jobs:
        name: dragon-text-file
        path: dragon.txt 
     - name: read file 
-      run: cat dragon.text 
+      run: cat dragon.txt 
     - name: Deploy 
       run: Deploying 
   
