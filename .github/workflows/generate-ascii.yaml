@@ -5,6 +5,7 @@ on:
 
 jobs:
   build_job_1:
+
     runs-on: ubuntu-latest
     steps:
     - name: Install Cowsay Program
@@ -18,7 +19,7 @@ jobs:
         name: dragon-text-file
         path: dragon.txt 
   test_job_1:
-
+    needs: build_job_1 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/download-artifact@v5
@@ -29,7 +30,7 @@ jobs:
       run: grep -i "dragon" dragon.text 
   
   Deploy_job_1:
-  
+    needs: build_job_1 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/download-artifact@v5
